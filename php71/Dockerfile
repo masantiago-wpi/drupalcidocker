@@ -1,5 +1,4 @@
-FROM php:7.1-apache
-MAINTAINER Andrew Whalen <github@amwhalen.com>
+FROM php:7.4-apache
 
 ENV APACHE_DOCROOT /var/www/html/web
 ENV APACHE_RUN_USER www-data
@@ -105,6 +104,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
       sysvsem \
       sysvshm \
       zip \
+      ext-sodium\
     && pecl install redis apcu \
     && docker-php-ext-enable redis apcu
 
